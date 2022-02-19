@@ -1,0 +1,25 @@
+{
+    "name": "asm",
+    "displayName": "ASM Highlight",
+    "description": "ASM language custom highlight.",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.64.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "asm",
+            "aliases": ["ASM Highlight", "asm"],
+            "extensions": [".asm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "asm",
+            "scopeName": "source.asm",
+            "path": "./syntaxes/asm.tmLanguage.json"
+        }]
+    }
+}

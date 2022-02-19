@@ -1,0 +1,70 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ASM Highlight",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#labels"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#define"
+		},
+		{
+			"include": "#comment"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.asm",
+				"match": "\\b((?i)nop1|dw|equ|addwf|addwfc|andwf|clrf|comf|decf|decfsz|dcfsnz|incf|incfsz|infsnz|cpfseq|iorwf|movf|movwf|rlcf|rlncf|rrcf|rrncf|setf|subwf|subwfb|tstfsz|xorwf|bcf|bsf|btfsc|btfss|bra|call|clrwdt|goto|nop|nop|rcall|reset|retfie|retlw|return|sleep|addlw|andlw|iorlw|movlw|retlw|sublw|xorlw|tblrd|tblwt)\\b"
+			}]
+		},
+		"labels": {
+			"patterns": [
+				{
+					"name": "entity.name.function.asm",
+					"match": "\\b([A-Za-z_][A-Za-z0-9_]+(?=:))\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "variable.other.global.asm",
+					"match": "\\b([A-Za-z_][A-Za-z0-9_]+)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.decimal.asm",
+					"match": "\\b((?i)[0-9]+|0x[A-Fa-f0-9]+|[0-9A-Fa-f]{2,}h)\\b"
+				}
+			]
+		},
+		"define": {
+			"patterns": [
+				{
+					"name": "meta.preprocessor.macro.asm",
+					"match": "\\b((?i)FSR0|FSR2|FAST|W|F|A|ACCESS|BANKED|ILRCON|IHRCON|WDTCKDIV|ADCDH|ADCDM|ADCDL|IAOSCON|AVDDR|LBTM|ASPM|ASPMUXS1|ASPMUXS3|ASPCK1|DFM|TPWE|DCSET|ASPCHEN|ROMREG|LEDCON1|LEDCON2|LEDSE|LEDCON3|LEDDATA0|LEDDATA1|LEDDATA2|LEDDATA3|LEDDATA4|LEDDATA5|LEDDATA6|LEDDATA7|LEDDATA8|RCSTA|RCREG|TXSTA|TXREG|SPBRG|PT1|PT2|PT3|PORT1|PORT2|PORT3|PT1PU|PT2PU|PT3PU|PT2EN|PT3EN|LAT2|LAT3|PIR1|PIE2|PIR2|BUZCON|BUZCKS|RD_TMR0L|PWM0CON|PWM0D|PWM0C|PWM1CON|PWM1DH|PWM1DL|PWM1CH|PWM1CL|WDTCON|LVDM|OSCCON|T0CON|TMR0L|STATUS|FSR2L|FSR2H|INDF2|BSR|WREG|FSR0L|FSR0H|INDF0|INTCON2|INTCON|TABLAT|TBLPTRL|TBLPTRH|PCL|PCLATH|STKPTR|TOSL|TOSH|ILRCEN|IHRCEN|ILRCT4|ILRCT3|ILRCT2|ILRCT1|ILRCT0|IHRTCT7|IHRTCT6|IHRTCT5|IHRTCT4|IHRTCT3|IHRTCT2|IHRTCT1|IHRTCT0|C|DC|Z|BOR|instr_reset|TO|PD|Un_ins|GIE|VPPIE|WDT16IE|TMR0IE|ADIE|LBTIE|INT1IE|INT0IE|VPPIF|WDT16IF|TMR0IF|ADIF|LBTIF|INT1IF|INT0IF|RCIE|TXIE|RCIF|TXIF|LVDSEL|LVDEN|VPPDO|LBTO|AIRLBTSET|IRCF2|IRCF1|IRCF0|IDLEN|SCS1|SCS0|STKUNL|STKUNF|WDTEN0|WDTEN1|WDT16TM0|WDT16TM1|WDT16TM2|LEDEN|CPREN|TMR0EN|T0PS2|T0PS1|T0PS0|TEN|ADOUTS|OSR2|OSR1|OSR0|ADCEN|BUFSEL|BUFOFF|PAEN|PGIAEN|GS0|GS1|GS2|AVDDREN|AVDDRX1|AVDDRX0|BGREN|ACMEN|TX9|TXEN|TRMT|TX9D|RX9D|OERR|FERR|CREN|RX9|SPEN|BUZEN|BUZ_SEL|PFD_IO|BUZ_IO)\\b"
+				}
+			]
+		},
+		"comment": {
+			"begin": ";",
+			"end": "\n",
+			"name": "comment.line.double-slash.asm"
+		}
+	},
+	"scopeName": "source.asm"
+}
